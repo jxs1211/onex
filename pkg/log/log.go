@@ -88,7 +88,7 @@ func NewLogger(opts *Options) *zapLogger {
 	// 自定义 TimeKey 为 timestamp，timestamp 语义更明确
 	encoderConfig.TimeKey = "timestamp"
 	// 指定时间序列化函数，将时间序列化为 `2006-01-02 15:04:05.000` 格式，更易读
-	encoderConfig.EncodeTime = func(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
+	encoderConfig.EncodeTime = func(t time.Time, enc zapcore.PrimitiveArrayEncoder) { // ??
 		enc.AppendString(t.Format("2006-01-02 15:04:05.000"))
 	}
 	// 指定 time.Duration 序列化函数，将 time.Duration 序列化为经过的毫秒数的浮点数

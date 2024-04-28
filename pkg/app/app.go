@@ -154,7 +154,7 @@ func WithWatchConfig() Option {
 func NewApp(name string, shortDesc string, opts ...Option) *App {
 	a := &App{
 		name:      name,
-		run:       func() error { return nil },
+		run:       func() error { return nil }, // ??
 		shortDesc: shortDesc,
 	}
 
@@ -196,7 +196,7 @@ func (a *App) buildCommand() {
 		cmd.SilenceUsage = true
 		cmd.SetFlagErrorFunc(func(c *cobra.Command, err error) error {
 			// Re-enable usage printing.
-			c.SilenceUsage = false
+			c.SilenceUsage = false // ??
 			return err
 		})
 	}
